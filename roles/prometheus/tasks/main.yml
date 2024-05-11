@@ -1,0 +1,4 @@
+---
+# tasks file for prometheus
+- name: install Prometheus
+  ansible.builtin.include_tasks: install_prometheus.yml

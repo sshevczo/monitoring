@@ -1,0 +1,12 @@
+---
+- name: Проверка аптайма
+  hosts: "{{ stand }}"
+  gather_facts: false
+  become: no
+  tasks:
+    - name: "Проверка аптайма"
+      shell: "uptime"
+      register: server_uptime
+      run_once: yes
+    - name: "Вывод аптайма"
+      debug: var=server_uptime.stdout_lines
