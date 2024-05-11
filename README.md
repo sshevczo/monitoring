@@ -1,2 +1,2 @@
-# monitoring-webinar
+# monitoring
 Примеры кода для вебинара по мониторингу
