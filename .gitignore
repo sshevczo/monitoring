@@ -1,4 +1,4 @@
 ﻿.idea
 *.cfg
 *.ini
-*save
+*.save
