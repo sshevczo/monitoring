@@ -1,9 +1,9 @@
----
 
+---
 - name: Create User prometheus
   user:
     name: prometheus
-    create home: no
+    create_home: no
     shell: /bin/false
 
 - name: Create directories for prometheus
@@ -25,7 +25,7 @@
     remote_src: yes
 
 - name: Copy Bin Files From Unzipped to Prometheus
-  сору:
+  copy:
     src: /tmp/prometheus/prometheus-2.47.2.linux-amd64/{{ item }}
     dest: /usr/local/bin/
     remote_src: yes
@@ -35,7 +35,7 @@
   loop: [ 'prometheus', 'promtool' ]
 
 - name: Copy Conf Files From Unzipped to Prometheus
-  сору:
+  copy:
     src: /tmp/prometheus/prometheus-2.47.2.linux-amd64/{{ item }}
     dest: /etc/prometheus/
     remote_src: yes
@@ -46,8 +46,8 @@
 
 - name: Create File for Prometheus Systemd
   template:
-    src=templates/prometheus.service
-    dest=/etc/systemd/system/
+    src: templates/prometheus.service
+    dest: /etc/systemd/system/prometheus.service
   notify:
     - systemd reload
 
